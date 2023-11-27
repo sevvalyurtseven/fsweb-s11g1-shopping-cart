@@ -8,10 +8,14 @@ import Products from "./components/Products";
 import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
+  //2 farkli state'i takip ediyoruz!
   const [products, setProducts] = useState(data);
   const [cart, setCart] = useState([]);
 
+  //addItem fonksiyonu bos array olan kartimiza item'i ekleyecek!
+
   const addItem = (item) => {
+    setCart([...cart, item]);
     // verilen itemi sepete ekleyin
   };
 
