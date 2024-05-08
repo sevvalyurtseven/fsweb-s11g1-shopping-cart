@@ -6,7 +6,7 @@ const Item = (props) => {
   const { removeItem } = useContext(CartContext);
 
   const handleRemove = () => {
-    removeItem(props.id);
+    removeItem(props.orderInCart);
   };
   return (
     <ScCartItem>

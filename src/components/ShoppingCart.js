@@ -6,20 +6,16 @@ import Item from "./ShoppingCartItem";
 import { CartContext } from "../contexts/CartContext";
 
 const ShoppingCart = (props) => {
-  const { cart } = useContext(CartContext);
-
-  const getCartTotal = () => {
-    return cart
-      .reduce((acc, value) => {
-        return acc + value.price;
-      }, 0)
-      .toFixed(2);
-  };
+  const { cart, getCartTotal } = useContext(CartContext);
 
   return (
     <div>
-      {cart.map((item) => (
-        <Item key={item.id} {...item} />
+      {cart.map((item, orderInCart) => (
+        <Item
+          key={item.id.toString() + orderInCart.toString()}
+          {...item}
+          orderInCart={orderInCart}
+        />
       ))}
 
       <ScCartCheckout>

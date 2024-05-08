@@ -9,13 +9,22 @@ const CartContextProvider = ({ children }) => {
     setCart([...cart, item]);
   };
 
-  const removeItem = (itemId) => {
+  const removeItem = (orderInCart) => {
     // verilen id'ye sahip itemi sepetten kaldırın
-    setCart(cart.filter((item) => item.id !== itemId));
+    setCart(cart.filter((item, i) => i !== orderInCart));
+  };
+
+  const getCartTotal = (discountPercentage = 0) => {
+    //verilen indirim oranına göre sepetin toplamını hesaplayın
+    return cart
+      .reduce((acc, value) => {
+        return acc + value.price * (1 - discountPercentage / 100);
+      }, 0)
+      .toFixed(2);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, getCartTotal }}>
       {children}
     </CartContext.Provider>
   );
