@@ -8,6 +8,11 @@ const CartContextProvider = ({ children }) => {
     setCart([...cart, item]);
   };
 
+  const removeItem = (itemId) => {
+    // verilen id'ye sahip itemi sepetten kaldırın
+    setCart(cart.filter((item) => item.id !== itemId));
+  };
+
   return (
     <CartContext.Provider value={{ cart, addItem }}>
       {children}
