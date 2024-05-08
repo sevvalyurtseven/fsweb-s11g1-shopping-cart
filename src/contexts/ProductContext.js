@@ -11,4 +11,4 @@ const ProductContextProvider = ({ children }) => {
 
 export const ProductContext = createContext();
 
-export default ProductContextProvider();
+export default ProductContextProvider;
