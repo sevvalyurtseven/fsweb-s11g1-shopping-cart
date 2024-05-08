@@ -18,7 +18,7 @@ const ShoppingCart = (props) => {
 
   return (
     <div>
-      {props.cart.map((item) => (
+      {cart.map((item) => (
         <Item key={item.id} {...item} />
       ))}
 
