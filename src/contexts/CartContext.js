@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useLocalStorage("shoppingCart", []);
 
   const addItem = (item) => {
     // verilen itemi sepete ekleyin
