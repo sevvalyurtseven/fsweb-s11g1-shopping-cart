@@ -13,7 +13,7 @@ const ProductContextProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .post("https://reqres.in/api/products", data)
       .then((response) => {
         setProducts(response.data);
         setProductAPI({
